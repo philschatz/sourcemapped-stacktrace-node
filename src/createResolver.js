@@ -10,6 +10,10 @@ const createResolver = ({ uriFetcher, fsFetcher, store }) => {
       return (store[uri] = falseFetcher(uri));
     }
 
+    if (uri.match(/^file\:\/\//) {
+      return (store[uri] = fsFetcher(uri.substring('file://'.length));
+    }
+    
     // TODO need more heuristic here
     // if it starts as from http://, https://, file://
     // if it starts from ../node_modules (webpack thing)
