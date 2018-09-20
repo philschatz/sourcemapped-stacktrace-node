@@ -10,7 +10,7 @@ const createResolver = ({ uriFetcher, fsFetcher, store }) => {
       return (store[uri] = falseFetcher(uri));
     }
 
-    if (uri.match(/^file\:\/\//) {
+    if (uri.match(/^file\:\/\//)) {
       return (store[uri] = fsFetcher(uri.substring('file://'.length));
     }
     
