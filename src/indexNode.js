@@ -5,5 +5,9 @@ exports.createNodeResolver = createNodeResolver;
 exports.default = (stack, opts) => {
   const { store, ...other } = opts;
   other.resolver = other.resolver || createNodeResolver({ store });
-  return mapStackTrace(stack, other);
+  let errMessage = stack
+  if (stack instanceof Error) {
+      errMessage = stack.message
+  }
+  return mapStackTrace(errMessage, other);
 };
